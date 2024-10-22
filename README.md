@@ -1,7 +1,7 @@
 # WhatsAppBot
 
 <div> 
-Necessário intalar duas extensões:
+Necessário instalar duas extensões:
 </div>
 <div>
   <strong>easy.automation</strong>
