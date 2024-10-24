@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace WhatsAppBot
 {
@@ -14,10 +15,13 @@ namespace WhatsAppBot
         {
             try
             {
+                //Colocar o caminho do cach do seu chrome para abrir no local certo
                 StartBrowser(TypeDriver.GoogleChorme, "C:\\Users\\jaovi\\AppData\\Local\\Google\\Chrome\\User Data");
 
+                //URL do whatsApp
                 Navigate("https://web.whatsapp.com/");
 
+                //Necessário para aguardar o carregamento
                 WaitForLoad();
 
                 var elementSearch = AssignValue(TypeElement.Xpath, "//*[@id=\"side\"]/div[1]/div/div[2]/div[2]/div/div/p", to);
@@ -27,8 +31,16 @@ namespace WhatsAppBot
                 elementMessage.element.SendKeys(OpenQA.Selenium.Keys.Enter);
             }
 
-            catch {
-                Console.WriteLine("ERRO DE EXECUÇÃO");
+            catch
+            {
+                // Configura o processo para abrir o cmd e executar o comando de eco
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = "cmd.exe";   // Define que o cmd será aberto
+                psi.Arguments = "/c echo Estou aqui";  // O argumento /c executa o comando e fecha
+                psi.WindowStyle = ProcessWindowStyle.Normal;  // Define para abrir a janela normalmente
+                // Inicia o processo
+                Process.Start(psi);
+                //Console.WriteLine($"ERRO: {ex.Message}");
             }
 
         }
