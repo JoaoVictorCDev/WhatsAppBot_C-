@@ -16,7 +16,7 @@ namespace WhatsAppBot
             try
             {
                 //Colocar o caminho do cach do seu chrome para abrir no local certo
-                StartBrowser(TypeDriver.GoogleChorme, "C:\\Users\\jaovi\\AppData\\Local\\Google\\Chrome\\User Data");
+                StartBrowser(TypeDriver.GoogleChorme, "local");
 
                 //URL do whatsApp
                 Navigate("https://web.whatsapp.com/");
